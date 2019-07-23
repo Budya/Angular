@@ -1,5 +1,3 @@
-/* eslint no-use-before-define: 0 */  // --> OFF
-
 
 const path = require('path');
 const webpack = require('webpack');
