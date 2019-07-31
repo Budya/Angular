@@ -2,9 +2,25 @@ import { Component} from '@angular/core';
  
 @Component({
     selector: 'my-app',
-    template: `<div>
-                  <p [bold]="'28px'" [defaultSize]="'14px'">Hello Angular 2</p>
-                  <p>Angular 2 представляет модульную архитектуру приложения</p>
-               </div>`
+    template: `<p *ngIf="condition">
+                  Привет мир
+                </p>
+                <p *ngIf="!condition">
+                  Пока мир
+                </p>
+                <button (click)="toggle()">Toggle</button>
+                
+                <ul>
+                <p *ngFor="let item of items; let i = index">{{i+1}}.{{item}}</p>
+                </ul>`
 })
-export class AppComponent {}
+export class AppComponent {
+     
+    condition: boolean=true;
+
+    items =["Apple iPhone 7", "Huawei Mate 9", "Samsung Galaxy S7", "Motorola Moto Z"];
+     
+    toggle(){
+        this.condition=!this.condition;
+    }
+}
